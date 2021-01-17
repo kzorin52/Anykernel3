@@ -4,7 +4,7 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=Ability Kernel MIUI by RooGhz
+kernel.string=Ability Kernel by RooGhz
 do.devicecheck=1
 do.modules=0
 do.cleanup=1
