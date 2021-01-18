@@ -4,7 +4,7 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=Ability Kernel by RooGhz
+kernel.string=Ability Kernel by RooGhz720
 do.devicecheck=1
 do.modules=0
 do.cleanup=1
