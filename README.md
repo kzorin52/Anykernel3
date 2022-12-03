@@ -1,5 +1,5 @@
 # Anykernel3
-Kernel flasher for Android
+Kernel flasher for Ability
 ----------------------------------------------------------------------------------
 AnyKernel3 - Flashable Zip Template for Kernel Releases with Ramdisk Modifications
 ----------------------------------------------------------------------------------
