@@ -4,15 +4,15 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=Aghisna Kernel Redmi Note 10 Pro
+kernel.string=Aghisna RX Asus Zenfone Max Pro M2
 do.devicecheck=1
 do.modules=0
 do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
-device.name1=sweet
-device.name2=sweetin
-supported.versions=11 - 13
+device.name1=X01BD
+device.name2=X01BDA
+supported.versions=10 - 13
 supported.patchlevels=
 '; } # end properties
 
