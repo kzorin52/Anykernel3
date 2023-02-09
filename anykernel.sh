@@ -4,14 +4,14 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=Hyperion kernel By aghisna Redmi Note 10 Pro
+kernel.string=Blink kernel
 do.devicecheck=1
 do.modules=0
 do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
-device.name1=sweet
-device.name2=sweetin
+device.name1=vayu
+device.name2=bhima
 supported.versions=11 - 13
 supported.patchlevels=
 '; } # end properties
