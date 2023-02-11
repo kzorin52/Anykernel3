@@ -4,7 +4,7 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=Blink kernel
+kernel.string=Aghisna kernel for PCOC X3 Pro
 do.devicecheck=1
 do.modules=0
 do.systemless=1
