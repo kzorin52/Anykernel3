@@ -4,14 +4,14 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=Aghisna kernel for PCOC X3 Pro
+kernel.string=Aghisna kernel for Redmi Note 7
 do.devicecheck=1
 do.modules=0
 do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
-device.name1=vayu
-device.name2=bhima
+device.name1=lavender
+device.name2=violet
 supported.versions=11 - 13
 supported.patchlevels=
 '; } # end properties
