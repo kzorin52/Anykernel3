@@ -11,7 +11,7 @@ do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
 device.name1=lavender
-supported.versions=10 - 12
+supported.versions=10 - 13
 supported.patchlevels=
 '; } # end properties
 
