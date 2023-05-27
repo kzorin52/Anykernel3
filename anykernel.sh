@@ -27,37 +27,15 @@ ramdisk_compression=auto;
 
 
 ## AnyKernel file attributes
-# set permissions/ownership for included ramdisk files
 
 
-## AnyKernel boot install
+## AnyKernel install
 dump_boot;
 
 # begin ramdisk changes
 
-# init.rc
-
-# init.tuna.rc
-
-# fstab.tuna
 
 # end ramdisk changes
 
 write_boot;
-## end boot install
-
-
-# shell variables
-#block=vendor_boot;
-#is_slot_device=1;
-#ramdisk_compression=auto;
-
-# reset for vendor_boot patching
-#reset_ak;
-
-
-## AnyKernel vendor_boot install
-#split_boot; # skip unpack/repack ramdisk since we don't need vendor_ramdisk access
-
-#flash_boot;
-## end vendor_boot install
+## end install
