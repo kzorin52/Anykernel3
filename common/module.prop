@@ -1,0 +1,7 @@
+id=xperience
+name=Yuki Kernel lavender LMKD
+version=1
+versionCode=1
+author=klozz(TeamMEX)
+description=This module handles the LMKD configuration for those roms without this change
+template=1900

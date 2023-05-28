@@ -18,7 +18,7 @@ supported.patchlevels=
 # shell variables
 block=/dev/block/bootdevice/by-name/boot;
 is_slot_device=0;
-ramdisk_compression=auto;
+ramdisk_compression=lz4-l;
 
 
 ## AnyKernel methods (DO NOT CHANGE)
@@ -27,15 +27,13 @@ ramdisk_compression=auto;
 
 
 ## AnyKernel file attributes
+# set permissions/ownership for included ramdisk files
+set_perm_recursive 0 0 755 644 $ramdisk/*;
+set_perm_recursive 0 0 750 750 $ramdisk/init* $ramdisk/sbin;
 
 
 ## AnyKernel install
 dump_boot;
-
-# begin ramdisk changes
-
-
-# end ramdisk changes
 
 write_boot;
 ## end install
