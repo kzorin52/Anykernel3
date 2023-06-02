@@ -37,6 +37,50 @@ set_perm_recursive 0 0 750 750 $ramdisk/init* $ramdisk/sbin;
 ## AnyKernel boot install
 dump_boot;
 
+## start custom  cmd
+#  hadeh :)
+gladi_resik() {
+    patch_cmdline "aghisna.dimen" " "
+    #patch_cmdline "aghisna.charger" " "
+}
+
+# ho ho hooo looks like you are looking for something '-'
+# I guess for sure you find out about what is below, right?  '-'
+# call function 10x biar seru
+X=10
+while [ $X != 0 ];
+do
+    gladi_resik
+    X=$(($X-1))
+done
+
+cleanup_n_update() {
+    local Yaitu="$1"
+    local Isinya="$2"
+    local X=10
+    while [ $X != 0 ];
+    do
+        patch_cmdline "$Yaitu" " "
+        X=$(($X-1))
+    done
+    if [ "$Isinya" != "null" ];then
+        patch_cmdline "$Yaitu" "$Yaitu=$Isinya"
+    fi
+}
+
+# hayoh mau ngapain?
+
+if [ ! -z "$(cat /tmp/aghisna | grep OSS )" ];then
+    cleanup_n_update "aghisna.dimen" "0"
+    ui_print "- OSS option selected"
+elif [ ! -z "$(cat /tmp/aghisna | grep MIUI )" ];then
+    cleanup_n_update "aghisna.dimen" "1"
+    ui_print "- MIUI option selected"
+fi
+
+## pembersih
+rm -rf /tmp/aghisna;
+
 write_boot;
 ## end boot install
 
@@ -56,4 +100,5 @@ write_boot;
 
 #flash_boot;
 ## end vendor_boot install
+
 
