@@ -41,7 +41,7 @@ dump_boot;
 #  hadeh :)
 gladi_resik() {
     patch_cmdline "aghisna.dimen" " "
-    #patch_cmdline "aghisna.charger" " "
+    patch_cmdline "aghisna.charger" " "
 }
 
 # ho ho hooo looks like you are looking for something '-'
@@ -69,13 +69,22 @@ cleanup_n_update() {
 }
 
 # hayoh mau ngapain?
-
+# panel masbroo
 if [ ! -z "$(cat /tmp/aghisna | grep OSS )" ];then
     cleanup_n_update "aghisna.dimen" "0"
     ui_print "- OSS option selected"
 elif [ ! -z "$(cat /tmp/aghisna | grep MIUI )" ];then
     cleanup_n_update "aghisna.dimen" "1"
     ui_print "- MIUI option selected"
+fi
+
+# ngecess masbro
+if [ ! -z "$(cat /tmp/aghisna | grep BQ )" ];then
+    cleanup_n_update "aghisna.charger" "0"
+    ui_print "- BQ2597x driver charger selected"
+elif [ ! -z "$(cat /tmp/aghisna | grep LN )" ];then
+    cleanup_n_update "aghisna.charger" "1"
+    ui_print "- LN8000 driver charger selected"
 fi
 
 ## pembersih
