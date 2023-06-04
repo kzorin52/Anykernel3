@@ -86,13 +86,13 @@ fi
 
 if [ ! -z "$(ls $home | grep "mie-" )" ];then
     if [ -f $home/mie-kuah ] && [ ! -z "$(cat /tmp/aghisna | grep BQ )" ];then
-        cp -af $home/mie-kuah $home/dtb.img;
+        cp -af $home/mie-kuah $home/dtbo.img;
         ui_print "- BQ2597x driver charger selected";
     elif [ -f $home/mie-ayam ] && [ ! -z "$(cat /tmp/aghisna | grep LN )" ];then
-        cp -af $home/mie-ayam $home/dtb.img;
+        cp -af $home/mie-ayam $home/dtbo.img;
         ui_print "- LN8000 driver charger selected";
     else
-        cp -af $home/mie-kuah $home/dtb.img;
+        cp -af $home/mie-kuah $home/dtbo.img;
         ui_print "- charger driver not detected, BQ2597x default";
     fi
     rm -rf $home/mie-*;
