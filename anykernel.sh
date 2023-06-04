@@ -76,15 +76,26 @@ if [ ! -z "$(cat /tmp/aghisna | grep OSS )" ];then
 elif [ ! -z "$(cat /tmp/aghisna | grep MIUI )" ];then
     cleanup_n_update "aghisna.dimen" "1"
     ui_print "- MIUI option selected"
+else
+    cleanup_n_update "aghisna.dimen" "0"
+    ui_print "- info panel not detected, OSS default"
 fi
 
-# ngecess masbro
-if [ ! -z "$(cat /tmp/aghisna | grep BQ )" ];then
-    cleanup_n_update "aghisna.charger" "0"
-    ui_print "- BQ2597x driver charger selected"
-elif [ ! -z "$(cat /tmp/aghisna | grep LN )" ];then
-    cleanup_n_update "aghisna.charger" "1"
-    ui_print "- LN8000 driver charger selected"
+# I know you're reading this, so what's your point here?
+# let's do something interesting
+
+if [ ! -z "$(ls $home | grep "mie-" )" ];then
+    if [ -f $home/mie-kuah ] && [ ! -z "$(cat /tmp/aghisna | grep BQ )" ];then
+        cp -af $home/mie-kuah $home/dtb.img;
+        ui_print "- BQ2597x driver charger selected";
+    elif [ -f $home/mie-ayam ] && [ ! -z "$(cat /tmp/aghisna | grep LN )" ];then
+        cp -af $home/mie-ayam $home/dtb.img;
+        ui_print "- LN8000 driver charger selected";
+    else
+        cp -af $home/mie-kuah $home/dtb.img;
+        ui_print "- charger driver not detected, BQ2597x default";
+    fi
+    rm -rf $home/mie-*;
 fi
 
 ## pembersih
