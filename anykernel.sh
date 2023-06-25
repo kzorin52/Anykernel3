@@ -42,6 +42,7 @@ dump_boot;
 gladi_resik() {
     patch_cmdline "aghisna.dimen" " "
     patch_cmdline "aghisna.charger" " "
+    patch_cmdline "aghisna.fps" " "
 }
 
 # ho ho hooo looks like you are looking for something '-'
@@ -79,6 +80,14 @@ elif [ ! -z "$(cat /tmp/aghisna | grep MIUI )" ];then
 else
     cleanup_n_update "aghisna.dimen" "0"
     ui_print "- info panel not detected, OSS default"
+fi
+
+######
+if [ ! -z "$(cat /tmp/aghisna | grep 90HZ )" ];then
+    cleanup_n_update "aghisna.fps" "1"
+    ui_print "- Enable 90HZ option"
+else
+    cleanup_n_update "aghisna.fps" "0"
 fi
 
 # I know you're reading this, so what's your point here?
