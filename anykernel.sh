@@ -43,6 +43,7 @@ gladi_resik() {
     patch_cmdline "aghisna.dimen" " "
     patch_cmdline "aghisna.charger" " "
     patch_cmdline "aghisna.fps" " "
+    patch_cmdline "aghisna.kcal" " "
 }
 
 # ho ho hooo looks like you are looking for something '-'
@@ -88,6 +89,14 @@ if [ ! -z "$(cat /tmp/aghisna | grep 90HZ )" ];then
     ui_print "- Enable 90HZ option"
 else
     cleanup_n_update "aghisna.fps" "0"
+fi
+
+######
+if [ ! -z "$(cat /tmp/aghisna | grep LOS )" ];then
+    cleanup_n_update "aghisna.kcal" "1"
+    ui_print "- Disable kcal features"
+else
+    cleanup_n_update "aghisna.kcal" "0"
 fi
 
 # I know you're reading this, so what's your point here?
