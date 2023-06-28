@@ -37,13 +37,18 @@ set_perm_recursive 0 0 750 750 $ramdisk/init* $ramdisk/sbin;
 ## AnyKernel boot install
 dump_boot;
 
+# magisk
+if [ -e /data/adb/magisk.db ]; then
+ui_print "Magisk installed, u can disable ksu by adding 'NSU' for avoid conflict"
+fi
+
 ## start custom  cmd
 #  hadeh :)
 gladi_resik() {
     patch_cmdline "aghisna.dimen" " "
     patch_cmdline "aghisna.charger" " "
     patch_cmdline "aghisna.fps" " "
-    patch_cmdline "aghisna.kcal" " "
+    patch_cmdline "aghisna.ksu" " "
 }
 
 # ho ho hooo looks like you are looking for something '-'
@@ -92,11 +97,11 @@ else
 fi
 
 ######
-if [ ! -z "$(cat /tmp/aghisna | grep LOS )" ];then
-    cleanup_n_update "aghisna.kcal" "1"
-    ui_print "- Disable kcal features"
+if [ ! -z "$(cat /tmp/aghisna | grep NSU )" ];then
+    cleanup_n_update "aghisna.ksu" "1"
+    ui_print "- Disable kernelSu"
 else
-    cleanup_n_update "aghisna.kcal" "0"
+    cleanup_n_update "aghisna.ksu" "0"
 fi
 
 # I know you're reading this, so what's your point here?
