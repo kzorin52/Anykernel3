@@ -98,10 +98,10 @@ fi
 
 ######
 if [ ! -z "$(cat /tmp/aghisna | grep NSU )" ];then
-    cleanup_n_update "aghisna.ksu" "1"
+    cleanup_n_update "aghisna.ksu" "0"
     ui_print "- Disable kernelSu"
 else
-    cleanup_n_update "aghisna.ksu" "0"
+    cleanup_n_update "aghisna.ksu" "1"
 fi
 
 # I know you're reading this, so what's your point here?
