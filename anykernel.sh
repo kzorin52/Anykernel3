@@ -49,6 +49,8 @@ gladi_resik() {
     patch_cmdline "aghisna.charger" " "
     patch_cmdline "aghisna.fps" " "
     patch_cmdline "aghisna.ksu" " "
+    patch_cmdline "aghisna.hapticm" " "
+    patch_cmdline "aghisna.haptico" " "
 }
 
 # ho ho hooo looks like you are looking for something '-'
@@ -79,9 +81,11 @@ cleanup_n_update() {
 # panel masbroo
 if [ ! -z "$(cat /tmp/aghisna | grep OSS )" ];then
     cleanup_n_update "aghisna.dimen" "0"
+    cleanup_n_update "aghisna.haptico" "1"
     ui_print "- OSS option selected"
 elif [ ! -z "$(cat /tmp/aghisna | grep MIUI )" ];then
     cleanup_n_update "aghisna.dimen" "1"
+    cleanup_n_update "aghisna.hapticm" "1"
     ui_print "- MIUI option selected"
 else
     cleanup_n_update "aghisna.dimen" "0"
