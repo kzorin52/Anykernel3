@@ -46,12 +46,12 @@ fi
 #  hadeh :)
 gladi_resik() {
     patch_cmdline "aghisna.dimen" " "
-    patch_cmdline "aghisna.charger" " "
     patch_cmdline "aghisna.fps" " "
     patch_cmdline "aghisna.ksu" " "
     patch_cmdline "aghisna.hapticm" " "
     patch_cmdline "aghisna.haptico" " "
     patch_cmdline "aghisna.haptica" " "
+    patch_cmdline "aghisna.nps" " "
 }
 
 # ho ho hooo looks like you are looking for something '-'
@@ -84,10 +84,14 @@ if [ ! -z "$(cat /postinstall/aghisna | grep OSS )" ];then
     cleanup_n_update "aghisna.dimen" "0"
     cleanup_n_update "aghisna.haptico" "1"
     ui_print "- OSS option selected"
-elif [ ! -z "$(cat /postinstall/aghisna | grep aryan )" ];then
+elif [ ! -z "$(cat /postinstall/aghisna | grep ARYAN )" ];then
     cleanup_n_update "aghisna.dimen" "0"
     cleanup_n_update "aghisna.haptica" "1"
-    ui_print "- aryan tree's option selected"
+    ui_print "- Aryan tree's option selected"
+elif [ ! -z "$(cat /postinstall/aghisna | grep NEO )" ];then
+    cleanup_n_update "aghisna.dimen" "1"
+    cleanup_n_update "aghisna.haptico" "1"
+    ui_print "- Neo Buddy tree's option selected"
 elif [ ! -z "$(cat /postinstall/aghisna | grep MIUI )" ];then
     cleanup_n_update "aghisna.dimen" "1"
     cleanup_n_update "aghisna.hapticm" "1"
@@ -112,6 +116,14 @@ if [ ! -z "$(cat /postinstall/aghisna | grep NSU )" ];then
     ui_print "- Disable kernelSu"
 else
     cleanup_n_update "aghisna.ksu" "1"
+fi
+
+######
+if [ ! -z "$(cat /postinstall/aghisna | grep NSU )" ];then
+    cleanup_n_update "aghisna.nps" "0"
+    ui_print "- Disable proximity sensor"
+else
+    cleanup_n_update "aghisna.nps" "1"
 fi
 
 # I know you're reading this, so what's your point here?
