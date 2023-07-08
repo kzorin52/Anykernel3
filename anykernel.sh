@@ -119,7 +119,7 @@ else
 fi
 
 ######
-if [ ! -z "$(cat /postinstall/aghisna | grep NSU )" ];then
+if [ ! -z "$(cat /postinstall/aghisna | grep NPS )" ];then
     cleanup_n_update "aghisna.nps" "0"
     ui_print "- Disable proximity sensor"
 else
