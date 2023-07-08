@@ -51,6 +51,7 @@ gladi_resik() {
     patch_cmdline "aghisna.ksu" " "
     patch_cmdline "aghisna.hapticm" " "
     patch_cmdline "aghisna.haptico" " "
+    patch_cmdline "aghisna.haptica" " "
 }
 
 # ho ho hooo looks like you are looking for something '-'
@@ -83,12 +84,17 @@ if [ ! -z "$(cat /tmp/aghisna | grep OSS )" ];then
     cleanup_n_update "aghisna.dimen" "0"
     cleanup_n_update "aghisna.haptico" "1"
     ui_print "- OSS option selected"
+elif [ ! -z "$(cat /tmp/aghisna | grep aryan )" ];then
+    cleanup_n_update "aghisna.dimen" "0"
+    cleanup_n_update "aghisna.haptica" "1"
+    ui_print "- aryan tree's option selected"
 elif [ ! -z "$(cat /tmp/aghisna | grep MIUI )" ];then
     cleanup_n_update "aghisna.dimen" "1"
     cleanup_n_update "aghisna.hapticm" "1"
     ui_print "- MIUI option selected"
 else
     cleanup_n_update "aghisna.dimen" "0"
+    cleanup_n_update "aghisna.haptico" "1"
     ui_print "- info panel not detected, OSS default"
 fi
 
