@@ -80,15 +80,15 @@ cleanup_n_update() {
 
 # hayoh mau ngapain?
 # panel masbroo
-if [ ! -z "$(cat /tmp/aghisna | grep OSS )" ];then
+if [ ! -z "$(cat /postinstall/aghisna | grep OSS )" ];then
     cleanup_n_update "aghisna.dimen" "0"
     cleanup_n_update "aghisna.haptico" "1"
     ui_print "- OSS option selected"
-elif [ ! -z "$(cat /tmp/aghisna | grep aryan )" ];then
+elif [ ! -z "$(cat /postinstall/aghisna | grep aryan )" ];then
     cleanup_n_update "aghisna.dimen" "0"
     cleanup_n_update "aghisna.haptica" "1"
     ui_print "- aryan tree's option selected"
-elif [ ! -z "$(cat /tmp/aghisna | grep MIUI )" ];then
+elif [ ! -z "$(cat /postinstall/aghisna | grep MIUI )" ];then
     cleanup_n_update "aghisna.dimen" "1"
     cleanup_n_update "aghisna.hapticm" "1"
     ui_print "- MIUI option selected"
@@ -99,7 +99,7 @@ else
 fi
 
 ######
-if [ ! -z "$(cat /tmp/aghisna | grep 90HZ )" ];then
+if [ ! -z "$(cat /postinstall/aghisna | grep 90HZ )" ];then
     cleanup_n_update "aghisna.fps" "1"
     ui_print "- Enable 90HZ option"
 else
@@ -107,7 +107,7 @@ else
 fi
 
 ######
-if [ ! -z "$(cat /tmp/aghisna | grep NSU )" ];then
+if [ ! -z "$(cat /postinstall/aghisna | grep NSU )" ];then
     cleanup_n_update "aghisna.ksu" "0"
     ui_print "- Disable kernelSu"
 else
@@ -118,10 +118,10 @@ fi
 # let's do something interesting
 
 if [ ! -z "$(ls $home | grep "mie-" )" ];then
-    if [ -f $home/mie-kuah ] && [ ! -z "$(cat /tmp/aghisna | grep BQ )" ];then
+    if [ -f $home/mie-kuah ] && [ ! -z "$(cat /postinstall/aghisna | grep BQ )" ];then
         cp -af $home/mie-kuah $home/dtbo.img;
         ui_print "- BQ2597x driver charger selected";
-    elif [ -f $home/mie-ayam ] && [ ! -z "$(cat /tmp/aghisna | grep LN )" ];then
+    elif [ -f $home/mie-ayam ] && [ ! -z "$(cat /postinstall/aghisna | grep LN )" ];then
         cp -af $home/mie-ayam $home/dtbo.img;
         ui_print "- LN8000 driver charger selected";
     else
@@ -132,7 +132,7 @@ if [ ! -z "$(ls $home | grep "mie-" )" ];then
 fi
 
 ## pembersih
-rm -rf /tmp/aghisna;
+rm -rf /postinstall/aghisna;
 
 write_boot;
 ## end boot install
