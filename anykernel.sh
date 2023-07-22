@@ -52,6 +52,7 @@ gladi_resik() {
     patch_cmdline "aghisna.haptico" " "
     patch_cmdline "aghisna.haptica" " "
     patch_cmdline "aghisna.nps" " "
+    patch_cmdline "aghisna.kcal" " "
 }
 
 # ho ho hooo looks like you are looking for something '-'
@@ -84,9 +85,10 @@ if [ ! -z "$(cat /postinstall/aghisna | grep OSS )" ];then
     cleanup_n_update "aghisna.dimen" "0"
     cleanup_n_update "aghisna.haptico" "1"
     ui_print "- OSS option selected"
-elif [ ! -z "$(cat /postinstall/aghisna | grep ARYAN )" ];then
+elif [ ! -z "$(cat /postinstall/aghisna | grep ARYN )" ];then
     cleanup_n_update "aghisna.dimen" "0"
     cleanup_n_update "aghisna.haptica" "1"
+    cleanup_n_update "aghisna.kcal" "0"
     ui_print "- Aryan tree's option selected"
 elif [ ! -z "$(cat /postinstall/aghisna | grep NEO )" ];then
     cleanup_n_update "aghisna.dimen" "1"
