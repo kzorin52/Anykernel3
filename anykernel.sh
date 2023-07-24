@@ -53,6 +53,7 @@ gladi_resik() {
     patch_cmdline "aghisna.haptica" " "
     patch_cmdline "aghisna.nps" " "
     patch_cmdline "aghisna.kcal" " "
+    patch_cmdline "aghisna.NHDR" " "
 }
 
 # ho ho hooo looks like you are looking for something '-'
@@ -110,6 +111,14 @@ if [ ! -z "$(cat /postinstall/aghisna | grep 90HZ )" ];then
     ui_print "- Enable 90HZ option"
 else
     cleanup_n_update "aghisna.fps" "0"
+fi
+
+######
+if [ ! -z "$(cat /postinstall/aghisna | grep NHDR )" ];then
+    cleanup_n_update "aghisna.hdr" "0"
+    ui_print "- Disable HDR"
+else
+    cleanup_n_update "aghisna.fps" "1"
 fi
 
 ######
