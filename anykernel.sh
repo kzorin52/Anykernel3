@@ -114,14 +114,6 @@ else
 fi
 
 ######
-if [ ! -z "$(cat /postinstall/aghisna | grep NHDR )" ];then
-    cleanup_n_update "aghisna.hdr" "0"
-    ui_print "- Disable HDR"
-else
-    cleanup_n_update "aghisna.fps" "1"
-fi
-
-######
 if [ ! -z "$(cat /postinstall/aghisna | grep NSU )" ];then
     cleanup_n_update "aghisna.ksu" "0"
     ui_print "- Disable kernelSu"
