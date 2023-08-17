@@ -90,7 +90,6 @@ if [ ! -z "$(cat /data/local/aghisna | grep OSS )" ];then
 elif [ ! -z "$(cat /data/local/aghisna | grep ARYN )" ];then
     cleanup_n_update "aghisna.dimen" "0"
     cleanup_n_update "aghisna.haptica" "1"
-    cleanup_n_update "aghisna.kcal" "0"
     ui_print "- Aryan tree's option selected"
 elif [ ! -z "$(cat /data/local/aghisna | grep NEO )" ];then
     cleanup_n_update "aghisna.dimen" "1"
