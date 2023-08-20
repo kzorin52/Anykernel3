@@ -12,7 +12,7 @@ do.cleanup=1
 do.cleanuponabort=0
 device.name1=sweet
 device.name2=sweetin
-supported.versions=11 - 13
+supported.versions=11 - 14
 supported.patchlevels=
 '; } # end properties
 
@@ -52,9 +52,6 @@ gladi_resik() {
     patch_cmdline "aghisna.haptico" " "
     patch_cmdline "aghisna.haptica" " "
     patch_cmdline "aghisna.nps" " "
-    patch_cmdline "aghisna.kcal" " "
-    patch_cmdline "aghisna.klapse" " "
-    patch_cmdline "aghisna.hdr" " "
 }
 
 # ho ho hooo looks like you are looking for something '-'
@@ -116,7 +113,7 @@ fi
 ######
 if [ ! -z "$(cat /data/local/aghisna | grep NSU )" ];then
     cleanup_n_update "aghisna.ksu" "0"
-    ui_print "- Disable kernelSu"
+    ui_print "- Disable kernelSU"
 else
     cleanup_n_update "aghisna.ksu" "1"
 fi
@@ -135,7 +132,7 @@ fi
 if [ ! -z "$(ls $home | grep "mie-" )" ];then
     if [ -f $home/mie-kuah ] && [ ! -z "$(cat /data/local/aghisna | grep BQ )" ];then
         cp -af $home/mie-kuah $home/dtbo.img;
-        ui_print "- BQ2597x driver charger selected";
+        ui_print "- BQ2597x and PMIC driver charger selected";
     elif [ -f $home/mie-ayam ] && [ ! -z "$(cat /data/local/aghisna | grep LN )" ];then
         cp -af $home/mie-ayam $home/dtbo.img;
         ui_print "- LN8000 driver charger selected";
