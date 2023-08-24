@@ -83,11 +83,7 @@ cleanup_n_update() {
 if [ ! -z "$(cat /data/local/aghisna | grep OSS )" ];then
     cleanup_n_update "aghisna.dimen" "0"
     cleanup_n_update "aghisna.haptico" "1"
-    ui_print "- OSS option selected"
-elif [ ! -z "$(cat /data/local/aghisna | grep ARYN )" ];then
-    cleanup_n_update "aghisna.dimen" "0"
-    cleanup_n_update "aghisna.haptica" "1"
-    ui_print "- Aryan tree's option selected"
+    ui_print "- AOSP/OSS/ARYAN vendor rom selected"
 elif [ ! -z "$(cat /data/local/aghisna | grep NEO )" ];then
     cleanup_n_update "aghisna.dimen" "1"
     cleanup_n_update "aghisna.haptico" "1"
@@ -95,11 +91,11 @@ elif [ ! -z "$(cat /data/local/aghisna | grep NEO )" ];then
 elif [ ! -z "$(cat /data/local/aghisna | grep MIUI )" ];then
     cleanup_n_update "aghisna.dimen" "1"
     cleanup_n_update "aghisna.hapticm" "1"
-    ui_print "- MIUI option selected"
+    ui_print "- MIUI/STOCK rom selected"
 else
-    cleanup_n_update "aghisna.dimen" "0"
+    cleanup_n_update "aghisna.dimen" "1"
     cleanup_n_update "aghisna.haptico" "1"
-    ui_print "- info panel not detected, OSS default"
+    ui_print "- Info rom not apply, MIUI vendor default"
 fi
 
 ######
@@ -113,7 +109,7 @@ fi
 ######
 if [ ! -z "$(cat /data/local/aghisna | grep NSU )" ];then
     cleanup_n_update "aghisna.ksu" "0"
-    ui_print "- Disable kernelSU"
+    ui_print "- Disable kernelSU (BETA)"
 else
     cleanup_n_update "aghisna.ksu" "1"
 fi
@@ -138,7 +134,7 @@ if [ ! -z "$(ls $home | grep "mie-" )" ];then
         ui_print "- LN8000 driver charger selected";
     else
         cp -af $home/mie-kuah $home/dtbo.img;
-        ui_print "- charger driver not detected, BQ2597x default";
+        ui_print "- charger driver not apply, BQ/PMIC default";
     fi
     rm -rf $home/mie-*;
 fi
