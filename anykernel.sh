@@ -87,7 +87,7 @@ if [ ! -z "$(cat /data/local/aghisna | grep OSS )" ];then
 elif [ ! -z "$(cat /data/local/aghisna | grep NEO )" ];then
     cleanup_n_update "aghisna.dimen" "1"
     cleanup_n_update "aghisna.haptico" "1"
-    ui_print "- Neo Buddy tree's option selected"
+    ui_print "- MIUI VENDOR option selected"
 elif [ ! -z "$(cat /data/local/aghisna | grep MIUI )" ];then
     cleanup_n_update "aghisna.dimen" "1"
     cleanup_n_update "aghisna.hapticm" "1"
