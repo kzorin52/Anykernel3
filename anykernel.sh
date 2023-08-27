@@ -52,6 +52,7 @@ gladi_resik() {
     patch_cmdline "aghisna.haptico" " "
     patch_cmdline "aghisna.haptica" " "
     patch_cmdline "aghisna.nps" " "
+    patch_cmdline "aghisna.su" " "
 }
 
 # ho ho hooo looks like you are looking for something '-'
@@ -109,9 +110,11 @@ fi
 ######
 if [ ! -z "$(cat /data/local/aghisna | grep NSU )" ];then
     cleanup_n_update "aghisna.ksu" "0"
+    cleanup_n_update "aghisna.su" "0"
     ui_print "- Disable kernelSU (BETA)"
 else
     cleanup_n_update "aghisna.ksu" "1"
+    cleanup_n_update "aghisna.su" "1"
 fi
 
 ######
